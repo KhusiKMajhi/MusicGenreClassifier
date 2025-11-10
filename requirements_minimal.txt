@@ -1,0 +1,15 @@
+numpy
+pandas
+scikit-learn
+librosa
+soundfile
+pydub
+matplotlib
+seaborn
+joblib
+streamlit
+tqdm
+
+
+#install 
+#pip install -r requirements_minimal.txt

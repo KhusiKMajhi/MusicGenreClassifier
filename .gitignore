@@ -1,0 +1,29 @@
+# Created by venv; see https://docs.python.org/3/library/venv.html
+*# Ignore virtual environment folder
+venv/
+
+# Ignore Python cache and compiled files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore models and temporary files
+models/
+
+# Ignore dataset files (optional, if you don’t want to upload large data)
+data/
+*.csv
+*.wav
+
+# Ignore Jupyter notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore OS or editor-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore temporary or log files
+*.log
+*.tmp
+

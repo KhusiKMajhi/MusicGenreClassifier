@@ -8,9 +8,9 @@ import seaborn as sns
 import os
 
 MODEL_PATH = "models/final_model.joblib"
-CSV_PATH = "data/features_3_sec.csv"   # change to features_30_sec.csv if needed
+CSV_PATH = "data/features_3_sec.csv"  # change to 30s if desired
 
-def load_data(path):
+def load_df(path):
     df = pd.read_csv(path)
     label_col = next((c for c in df.columns if 'genre' in c.lower() or 'label' in c.lower()), df.columns[-1])
     X = df.drop(columns=[label_col])
@@ -19,37 +19,31 @@ def load_data(path):
             X = X.drop(columns=[c])
     return df, X, df[label_col].values, label_col
 
-def plot_confusion(y_true, y_pred, out_file="reports/confusion_matrix.png"):
+def plot_cm(y_true, y_pred, out="reports/confusion_matrix.png"):
     labels = np.unique(y_true)
     cm = confusion_matrix(y_true, y_pred, labels=labels)
-    os.makedirs(os.path.dirname(out_file), exist_ok=True)
+    os.makedirs(os.path.dirname(out), exist_ok=True)
     plt.figure(figsize=(10,8))
     sns.heatmap(cm, annot=True, fmt="d", xticklabels=labels, yticklabels=labels, cmap="Blues")
     plt.xlabel("Predicted")
     plt.ylabel("True")
     plt.title("Confusion Matrix")
     plt.tight_layout()
-    plt.savefig(out_file)
-    print(f"Saved confusion matrix to {out_file}")
+    plt.savefig(out)
+    print("Saved confusion matrix to", out)
     plt.show()
 
 def main():
-    print("Loading model:", MODEL_PATH)
     model = joblib.load(MODEL_PATH)
-    df, X, y_true, label_col = load_data(CSV_PATH)
-    print("Dataset:", CSV_PATH, "| Label column:", label_col)
-    # predict
+    df, X, y_true, label_col = load_df(CSV_PATH)
     y_pred = model.predict(X)
-    # metrics
-    acc = accuracy_score(y_true, y_pred)
-    print(f"\nOverall accuracy: {acc:.3f}\n")
-    print("Classification report:\n")
-    print(classification_report(y_true, y_pred, digits=3))
-    # confusion
-    plot_confusion(y_true, y_pred)
+    print("Accuracy:", accuracy_score(y_true, y_pred))
+    print(classification_report(y_true, y_pred))
+    plot_cm(y_true, y_pred)
 
 if __name__ == "__main__":
     main()
 
 
-#python src/evaluate_and_plot.py
+#run it as
+#python src\evaluate_and_plot.py
