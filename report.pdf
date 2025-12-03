@@ -1,0 +1,148 @@
+For your **report.pdf**, you want to create a professional, structured document that explains your project in detail. Here’s a **clear outline with content suggestions** you can use directly:
+
+---
+
+# **Music Genre Classification & Mood-Based Recommendation System**
+
+## 1. **Title Page**
+
+* Project Title: *Music Genre Classification & Mood-Based Recommendation System*
+* Your Name
+* Supervisor/Guide Name (if applicable)
+* Course / Department / College
+* Date
+
+---
+
+## 2. **Abstract**
+
+Write 4–5 sentences summarizing the project:
+
+*Example:*
+
+> This project focuses on classifying songs into genres using Machine Learning and recommending songs based on user mood. Audio features like MFCC, chroma, and spectral contrast are used to train a Random Forest classifier. The system maps genres to moods (Happy, Sad, Energetic, Calm, etc.) and provides personalized song recommendations. A Streamlit web interface is developed for interactive use, along with visualizations for genre distribution and feature importance. This project lays the foundation for an intelligent music recommendation system.
+
+---
+
+## 3. **Introduction**
+
+* Background of music genre classification.
+* Importance of mood-based recommendations.
+* Overview of AI/ML in music analysis.
+
+---
+
+## 4. **Objective**
+
+* Classify songs into genres using ML.
+* Map genres to moods.
+* Recommend songs based on mood.
+* Provide visual insights (genre distribution, feature importance).
+
+---
+
+## 5. **Dataset**
+
+* Name: GTZAN Music Genre Dataset
+* Source: [Kaggle link](https://www.kaggle.com/datasets/andradaolteanu/gtzan-dataset-music-genre-classification)
+* Description: 3-second audio feature CSV file (`features_3_sec.csv`)
+* Features used: MFCC, chroma, spectral centroid, zero-crossing rate, etc.
+* Labels: Genre (Pop, Rock, Jazz, Blues, Metal, etc.)
+
+---
+
+## 6. **Methodology**
+
+### Step 1: Data Preprocessing
+
+* Dropped non-feature columns (`filename`, `length`)
+* Scaled features using `StandardScaler`
+* Encoded labels using `LabelEncoder`
+
+### Step 2: Model Training
+
+* Model: Random Forest Classifier
+* Train-test split: 80%-20%
+* Evaluation: Accuracy, Precision, Recall, F1-score, Confusion Matrix
+
+### Step 3: Mood Mapping
+
+* Mapped genres to moods:
+
+  * Pop → Happy
+  * Rock → Energetic
+  * Blues → Sad
+  * Jazz → Calm, etc.
+
+### Step 4: Recommendation System
+
+* Based on cosine similarity between feature vectors
+* Top N songs recommended for the selected mood
+
+### Step 5: Visualization
+
+* Genre distribution
+* Feature importance plots
+
+---
+
+## 7. **Implementation**
+
+* Python libraries: pandas, numpy, scikit-learn, matplotlib, seaborn, streamlit
+* Streamlit app for interactive predictions and recommendations
+
+---
+
+## 8. **Results**
+
+* Model accuracy: ~88%
+* Confusion matrix shows performance across all genres
+* Sample predictions and recommendations (insert tables/screenshots from Streamlit)
+* Feature importance chart
+
+---
+
+## 9. **Discussion**
+
+* Model performs well on most genres, slightly lower on country & rock.
+* Recommendations are mood-aligned and relevant.
+* Limitations: Only uses 3-second features, real-time audio upload not yet implemented.
+
+---
+
+## 10. **Future Work**
+
+* Include 30-second features for improved accuracy
+* Real-time audio feature extraction from uploaded songs
+* Deploy on cloud for wider access
+* Enhance recommendation system with playlists, ratings, and collaborative filtering
+
+---
+
+## 11. **Conclusion**
+
+* Successfully classified music genres
+* Mapped songs to moods
+* Built a basic mood-based recommendation system
+* Created an interactive web interface
+
+---
+
+## 12. **References**
+
+* Kaggle GTZAN Dataset: [https://www.kaggle.com/datasets/andradaolteanu/gtzan-dataset-music-genre-classification](https://www.kaggle.com/datasets/andradaolteanu/gtzan-dataset-music-genre-classification)
+* Python libraries: pandas, numpy, scikit-learn, matplotlib, seaborn, streamlit
+* GeeksforGeeks tutorials on Music Genre Classification
+
+---
+
+## 13. **Appendix (Optional)**
+
+* Sample dataset snippet
+* Sample code screenshots
+* Output screenshots from Streamlit
+
+---
+
+✅ **Tip:** Include screenshots from your Streamlit app showing predictions, mood mapping, and recommendations. This makes the report visually appealing.
+
